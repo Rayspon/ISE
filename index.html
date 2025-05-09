@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>International School of Estonia | Tallinn</title>
+    <style>
+        :root {
+            --primary: #134b8a;
+            --accent: #ffc107;
+            --light: #f8f9fa;
+            --dark: #343a40;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .header {
+            background-color: var(--primary);
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+
+        .logo {
+            display: flex;
+            url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSla7TmT-K09K6o_NuY353MUMocjHsB5bHlaQ&s')
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-image {
+            width: 80px;
+            height: 80px;
+            background-color: var(--light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .logo-text h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .logo-text p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .nav {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-item {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            padding: 0.5rem;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-item:hover {
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .hero {
+            height: 60vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://scontent.ftll3-1.fna.fbcdn.net/v/t39.30808-6/495456957_1244314897697565_212291596574710705_n.jpg?stp=cp6_dst-jpg_s960x960_tt6&_nc_cat=105&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=GjC94_vF_VcQ7kNvwGB-vOI&_nc_oc=Adkp-Ux_KKD1deBDlo4SrXwEWDLqP_6uhOXRSeyp3lge6RIoFJv8s2HGtkJNJouqgxs&_nc_zt=23&_nc_ht=scontent.ftll3-1.fna&_nc_gid=NU48od7X2G8Y3UfwdmSU1g&oh=00_AfI7qm3P6AO-qvUVV9v7sBu86Njs3T2ziKiYDoQj2UcwVg&oe=6823BF1A') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--accent);
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .features {
+            padding: 4rem 2rem;
+            background-color: var(--light);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1rem;
+            background-color: var(--light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .about {
+            padding: 4rem 2rem;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonials {
+            padding: 4rem 2rem;
+            background-color: var(--light);
+        }
+
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonial {
+            text-align: center;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .cta {
+            padding: 4rem 2rem;
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta h2 {
+            margin-bottom: 1.5rem;
+        }
+
+        .cta p {
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto 2rem;
+            text-align: left;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-column a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column a:hover {
+            color: var(--accent);
+        }
+
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.5rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                padding: 1rem 0;
+            }
+
+            .nav {
+                margin-top: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">
+            <div class="logo-image">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSla7TmT-K09K6o_NuY353MUMocjHsB5bHlaQ&s" alt="ISE Logo" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div class="logo-text">
+                <h1>International School of Estonia</h1>
+                <p>Excellence in Education in the Heart of Tallinn</p>
+            </div>
+        </div>
+        <nav class="nav">
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>International School of Estonia</h2>
+            <p>The International School of Estonia provides a world-class education in the center of Tallinn. Our multicultural environment nurtures curious minds and fosters a love for lifelong learning.</p>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <h2 class="section-title">Why Choose ISE?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🌍</div>
+                <h3>International Curriculum</h3>
+                <p>We offer the International Baccalaureate (IB) programme, providing students with a globally recognized education that opens doors worldwide.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">👨‍🏫</div>
+                <h3>Experienced Faculty</h3>
+                <p>Our diverse team of teachers brings international perspectives and expertise to create a supportive learning environment.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🏫</div>
+                <h3>Central Location</h3>
+                <p>Located in the heart of Tallinn, don't worry about having a hard time finding our location.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <h2 class="section-title">About Our School</h2>
+        <div class="about-content">
+            <div>
+                <h3>Our Vision</h3>
+                <p>The International School of Estonia aims to develop inquiring, knowledgeable, and caring young people who help to create a better and more peaceful world through intercultural understanding and respect.</p>
+                <p>As a small school in central Tallinn, we provide personalized attention to each student, ensuring they develop both academically and personally.</p>
+            </div>
+            <div>
+                <h3>Our Community</h3>
+                <p>Our school is home to students from over 30 nationalities, creating a truly diverse learning environment. This multicultural setting prepares our students to become global citizens who value different perspectives and embrace diversity.</p>
+                <p>We maintain small class sizes to ensure each student receives individual attention and guidance throughout their educational journey.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <h2 class="section-title">What Our Community Says</h2>
+        <div class="testimonial-slider">
+            <div class="testimonial">
+                <p class="testimonial-text">"Great school. I love that the teachers are very supportive and the interactive learning approach"</p>
+                <p class="testimonial-author">- ISE Students</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="cta-content">
+            <h2>Join Our International Community</h2>
+            <p>Take the first step towards providing your child with a world-class education in the heart of Tallinn. We invite you to visit our campus and experience our vibrant learning environment firsthand.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <p>Juhkentali 18</p>
+                <p>Tallinn, 10132</p>
+                <p>Estonia</p>
+                <p>Phone: +372 6214 000</p>
+                <p>Email: info@ise.edu.ee</p>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Follow Us</h3>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                    <li><a href="#">YouTube</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 International School of Estonia. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
